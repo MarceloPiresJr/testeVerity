@@ -1,0 +1,12 @@
+Result/*
+*.png
+*.html
+*.pyc
+*.xml
+__pycache__
+venv/
+*.apk
+*.idsig
+.DS_store
+.vscode
+app/
