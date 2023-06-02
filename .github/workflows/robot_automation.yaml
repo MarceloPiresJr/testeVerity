@@ -38,3 +38,4 @@ jobs:
       with:
         name: Test Results
         path: /home/runner/work/testeVerity/testeVerity/Result/
+
