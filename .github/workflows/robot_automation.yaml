@@ -24,9 +24,6 @@ jobs:
         sudo unzip -qq /tmp/chromedriver.zip -d /usr/local/bin/
         sudo chmod +x /usr/local/bin/chromedriver
         sudo mv /usr/local/bin/chromedriver /usr/bin/chromedriver
-        echo "chrome_options = webdriver.ChromeOptions()\nchrome_options.add_argument('--headless')" >> ./resource/python/root.py
-        echo "chrome_options.add_argument('--no-sandbox')" >> ./resource/python/root.py
-        echo "chrome_options.add_argument('--disable-dev-shm-usage')" >> ./resource/python/root.py
 
     - name: Set up Python
       uses: actions/setup-python@v2
