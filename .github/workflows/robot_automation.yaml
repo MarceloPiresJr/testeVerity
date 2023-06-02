@@ -25,7 +25,7 @@ jobs:
 
     - name: Run Robot Framework tests
       run: |
-        robot --outputdir results/ tests/
+        robot -d Result/ -V ./resource/python/root.py tests/
 
     - name: Publish test results
       uses: actions/upload-artifact@v2
