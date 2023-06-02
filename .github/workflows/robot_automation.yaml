@@ -34,6 +34,7 @@ jobs:
         robot -d Result/ -V ./resource/python/root.py tests/
 
     - name: Publish test results
+      if: failure()
       uses: actions/upload-artifact@v2
       with:
         name: Test Results
