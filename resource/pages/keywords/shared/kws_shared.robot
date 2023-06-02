@@ -7,21 +7,21 @@ Resource            ${ROOT}/resource/main.robot
 *** Keywords ***
 
 Wait and Click Element
-    [Documentation]    Keyword responsável por aguardar o elemento estar visível e clica.
+    [Documentation]    Aguardar o elemento estar visível e clica.
     [Arguments]    ${ELEMENT}    ${TIMEOUT}=20
     Wait until element is visible    ${ELEMENT}    timeout=${TIMEOUT}
     Capture Page Screenshot
     Click element    ${ELEMENT}
 
 Wait and Input Text
-    [Documentation]    Keyword responsável por aguardar o elemento estar visível e digitar o texto.
+    [Documentation]    Aguardar o elemento estar visível e digitar o texto.
     [Arguments]    ${ELEMENT}    ${TEXT}
     Wait until element is visible    ${ELEMENT}
     Capture Page Screenshot
     Input text    ${ELEMENT}    ${TEXT}
 
 Verifica o idioma do site
-    [Documentation]
+    [Documentation]  Verificar em qual idioma está o site, dependendo do argumento que passar.
     [Arguments]  ${language_visible}
 
     ${dropdown_bool}  Run Keyword And Return Status    Element Should Be Visible    ${language_visible}
