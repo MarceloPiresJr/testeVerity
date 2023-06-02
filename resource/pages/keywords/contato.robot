@@ -13,7 +13,6 @@ que eu clico no menu "Contato" na sessão "Vamos Conversar"
 
 preencho os campos do formulario
     [Documentação]
-    Set Selenium Speed    0.5
     Wait and Input Text    ${contato.name_field}    Marcelo Pires da Rocha Junior
     Wait and Input Text    ${contato.email_field}    marcelo.pires.jr@gmail.com
     Wait and Input Text    ${contato.tel_cel_field}    (11)98335-2429

@@ -5,10 +5,8 @@ Language: pt-br
 Documentation  
 
 Resource            ${ROOT}/resource/main.robot
-Suite Setup       Open Session Web
-Suite Teardown    Close Session
-
-Test Teardown   After Test 
+Test Setup         Open Session Web
+Test Teardown       Run Keywords  Close Session  After Test
 
 
 *** Test Cases ***
