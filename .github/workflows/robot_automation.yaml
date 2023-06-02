@@ -13,10 +13,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install ChromeDriver
-      uses: nanasess/setup-chromedriver@v2
-      with:
-        chromedriver-version: '113.0.5672.63'
+    - name: Install Chrome and ChromeDriver
+      run: |
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+        LATEST_CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        wget -q -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+        sudo unzip -qq /tmp/chromedriver.zip -d /usr/local/bin/
+        sudo chmod +x /usr/local/bin/chromedriver
+        sudo mv /usr/local/bin/chromedriver /usr/bin/chromedriver
+        echo "chrome_options = webdriver.ChromeOptions()\nchrome_options.add_argument('--headless')" >> ./resource/python/root.py
+        echo "chrome_options.add_argument('--no-sandbox')" >> ./resource/python/root.py
+        echo "chrome_options.add_argument('--disable-dev-shm-usage')" >> ./resource/python/root.py
 
     - name: Set up Python
       uses: actions/setup-python@v2
